@@ -13,11 +13,19 @@ describe('My Login application', () => {
 
     })
 
-    it('should scroll', async () => {
+    it.only('should swipe the cards', async () => {
 
         await HomePage.goToPage('Swipe')
-        await SwipePage.scrollRight()
+        await SwipePage.isDisplayed()
+        .then(isDisplayed => {
+            expect(isDisplayed).toEqual(false)
+        })
+        await SwipePage.swipeRight()
         await driver.saveScreenshot('./screenshots/scrolled.png')
+        await SwipePage.isDisplayed()
+        .then(isDisplayed => {
+            expect(isDisplayed).toEqual(true)
+        })
 
     })
 
