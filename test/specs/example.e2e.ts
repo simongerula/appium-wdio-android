@@ -16,17 +16,21 @@ describe('My Login application', () => {
     it('should scroll', async () => {
 
         await HomePage.goToPage('Swipe')
-        await SwipePage.scrollDown()
+        await SwipePage.scrollRight()
+        await driver.saveScreenshot('./screenshots/scrolled.png')
 
     })
 
-    it('should change screen orientation and take a screenshoot', () => {
+    it('should change screen orientation and take a screenshoot', async () => {
         
-        driver.getOrientation()
-        driver.setOrientation('LANDSCAPE')
-        driver.saveScreenshot('./screenshots/landscape.png')
-        expect(driver.getOrientation()).toHaveText('LANDSCAPE')
-        
+        await driver.setOrientation('LANDSCAPE')
+        await driver.pause(2500)
+        await driver.saveScreenshot('./screenshots/landscape.png')
+        await driver.getOrientation()
+        .then(orientation => {
+            expect(orientation).toEqual('LANDSCAPE')
+        })
+
     })
 
 })
