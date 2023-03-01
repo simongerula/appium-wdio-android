@@ -1,27 +1,28 @@
 import HomePage from '../pageobjects/home.page.js'
 import LoginPage from '../pageobjects/login.page.js'
 import SwipePage from '../pageobjects/swipe.page.js'
+import data from '../../data/data.js'
 
 describe('My Login application', () => {
 
     it('should login and find success message', async () => {
 
-        await HomePage.goToPage('Login')
-        await LoginPage.login('testmail@mail.com', 'SuperSecretPassword!')
-        await expect(LoginPage.msgSuccessLogin).toHaveText('You are logged in!')
+        await HomePage.goToPage(data.LoginData.page)
+        await LoginPage.login(data.LoginData.username, data.LoginData.password)
+        await expect(LoginPage.msgSuccessLogin).toHaveText(data.LoginData.successText)
         await LoginPage.closeAlert()
 
     })
 
-    it.only('should swipe the cards', async () => {
+    it('should swipe the cards', async () => {
 
-        await HomePage.goToPage('Swipe')
+        await HomePage.goToPage(data.SwipeData.page)
         await SwipePage.isDisplayed()
         .then(isDisplayed => {
             expect(isDisplayed).toEqual(false)
         })
         await SwipePage.swipeRight()
-        await driver.saveScreenshot('./screenshots/scrolled.png')
+        await driver.saveScreenshot(data.SwipeData.pathScreenshot)
         await SwipePage.isDisplayed()
         .then(isDisplayed => {
             expect(isDisplayed).toEqual(true)
@@ -31,12 +32,12 @@ describe('My Login application', () => {
 
     it('should change screen orientation and take a screenshoot', async () => {
         
-        await driver.setOrientation('LANDSCAPE')
+        await driver.setOrientation(data.OrientationData.orientation)
         await driver.pause(2500)
-        await driver.saveScreenshot('./screenshots/landscape.png')
+        await driver.saveScreenshot(data.OrientationData.pathScreenshot)
         await driver.getOrientation()
         .then(orientation => {
-            expect(orientation).toEqual('LANDSCAPE')
+            expect(orientation).toEqual(data.OrientationData.orientation)
         })
 
     })
