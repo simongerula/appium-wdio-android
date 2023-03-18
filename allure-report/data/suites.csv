@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Mar 18 15:06:03 NZDT 2023","Sat Mar 18 15:06:49 NZDT 2023","46084","","My Login application","","","","should swipe the cards",""
+"passed","Sat Mar 18 15:05:47 NZDT 2023","Sat Mar 18 15:06:03 NZDT 2023","16577","","My Login application","","","","should login and find success message",""
+"passed","Sat Mar 18 15:06:49 NZDT 2023","Sat Mar 18 15:06:55 NZDT 2023","5258","","My Login application","","","","should change screen orientation and take a screenshoot",""
