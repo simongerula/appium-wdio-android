@@ -14,6 +14,8 @@ Android SDK (https://developer.android.com/studio)
 
 WebDriverIO (https://webdriver.io/)
 
+Allure Commandline (https://docs.qameta.io/allure/)
+
 
 ### Running the Tests
 
@@ -23,7 +25,7 @@ Run npm install to install all dependencies.
 Connect an Android device or emulator to your computer.
 Start the Appium server.
 Run npm test to execute the test suite.
-Structure
+After the test suite is executed, run allure generate allure-results && allure open
 
 ### The test suite is organized into three files:
 
@@ -44,8 +46,9 @@ All tests are implemented using WebDriverIO and Appium commands and assertions, 
 
 ### Additional Information
 
-> The npm wdio command runs all the tests in the test suite.
+> The npm run wdio command runs all the tests in the test suite.
 
 Screenshots are saved in the screenshots/ directory.
 
 For more information on how to use WebDriverIO and Appium, please refer to their respective documentation.
+For more information on how to use Allure Commandline, please refer to the Allure documentation.
